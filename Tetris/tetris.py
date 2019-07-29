@@ -9,6 +9,9 @@ HEIGHT = 800
 GRID_WIDTH = 10
 GRID_HEIGHT = 20
 
+column = WIDTH / GRID_WIDTH
+row = HEIGHT / GRID_HEIGHT
+
 BLACK = (  0,   0,   0)
 WHITE = (255, 255, 255)
 
@@ -17,16 +20,14 @@ screen = pygame.display.set_mode([WIDTH, HEIGHT])
 
 game_over = False
 
-def draw_Grid(width, height, columns, rows):
-	column = width / columns
-	row = height / rows
+def draw_Grid():
 
-	for col in range(columns):
+	for col in range(GRID_WIDTH):
 		x = column * col
 
 		pygame.draw.line(screen, WHITE, [x,0], [x,HEIGHT])
 
-	for r in range(rows):
+	for r in range(GRID_HEIGHT):
 		y = row * r
 		pygame.draw.line(screen, WHITE, [0,y], [WIDTH,y])
 
@@ -34,7 +35,7 @@ def draw_Grid(width, height, columns, rows):
 while not game_over:
 
 	#screen.fill(WHITE)
-	draw_Grid(WIDTH,HEIGHT,GRID_WIDTH,GRID_HEIGHT)
+	draw_Grid()
 
 	for event in pygame.event.get():
 		if event.type == pygame.QUIT:
