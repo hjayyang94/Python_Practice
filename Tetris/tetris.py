@@ -17,6 +17,8 @@ WHITE = (255, 255, 255)
 
 screen = pygame.display.set_mode([WIDTH, HEIGHT])
 
+Clock = pygame.time.Clock
+
 
 game_over = False
 
